@@ -29,13 +29,22 @@ module.exports = {
   assetsDir: 'static',
   lintOnSave: process.env.NODE_ENV === 'development',
   productionSourceMap: false,
+
   devServer: {
     port: port,
     open: true,
+    host: 'localhost',
     overlay: {
       warnings: false,
       errors: true
     },
+    proxy: {
+      '/': {
+        target: 'http://localhost:9011/',
+        changeOrigin: true,
+        pathRewrite: {
+        }
+      }},
     before: require('./mock/mock-server.js')
   },
   configureWebpack: {

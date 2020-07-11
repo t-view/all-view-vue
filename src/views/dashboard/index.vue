@@ -6,6 +6,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import axios from 'axios'
 
 export default {
   name: 'Dashboard',
@@ -13,18 +14,26 @@ export default {
     ...mapGetters([
       'name'
     ])
+  },
+  created() {
+    console.log('fff')
+
+    axios.get('/ddd/do').then(res => {
+      console.log(res)
+    })
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.dashboard {
-  &-container {
-    margin: 30px;
+  .dashboard {
+    &-container {
+      margin: 30px;
+    }
+
+    &-text {
+      font-size: 30px;
+      line-height: 46px;
+    }
   }
-  &-text {
-    font-size: 30px;
-    line-height: 46px;
-  }
-}
 </style>
