@@ -43,6 +43,7 @@ module.exports = {
         target: 'http://localhost:9011/',
         changeOrigin: true,
         pathRewrite: {
+          '^/dev-api': '/'
         }
       }},
     before: require('./mock/mock-server.js')

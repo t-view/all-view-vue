@@ -1,15 +1,21 @@
 <template>
   <div class="dashboard-container">
     <div class="dashboard-text">name: {{ name }}</div>
+    <div>{{ error_data }}</div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-import axios from 'axios'
+import { health } from '@/api/health'
 
 export default {
   name: 'Dashboard',
+  data() {
+    return {
+      error_data: ''
+    }
+  },
   computed: {
     ...mapGetters([
       'name'
@@ -17,9 +23,10 @@ export default {
   },
   created() {
     console.log('fff')
-
-    axios.get('/ddd/do').then(res => {
+    health().then(res => {
       console.log(res)
+    }).catch(e => {
+      console.log(e)
     })
   }
 }
