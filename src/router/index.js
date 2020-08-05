@@ -78,6 +78,22 @@ export const constantRoutes = [
 
   },
 
+  {
+    path: '/redis',
+    component: Layout,
+    meta: { title: 'redis管理', icon: 'el-icon-s-help' },
+    name: 'redis',
+    redirect: '/redis/dashboard',
+    children: [
+      {
+        path: 'key',
+        name: 'key',
+        component: () => import('@/views/redis/redis_dashboard'),
+        meta: { title: 'redis key 管理', icon: 'tree' }
+      }
+    ]
+  },
+
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }
 ]
