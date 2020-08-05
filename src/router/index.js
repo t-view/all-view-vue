@@ -54,7 +54,18 @@ export const constantRoutes = [
       meta: { title: 'Dashboard', icon: 'dashboard' }
     }]
   },
-
+  {
+    path: '/jvm',
+    component: Layout,
+    meta: { title: 'jvm', icon: 'el-icon-s-help' },
+    redirect: '/jvm/info',
+    children: [{
+      path: 'jvm',
+      name: '系统状态',
+      component: () => import('@/views/jvm/jvm'),
+      meta: { title: 'jvm系统状态', icon: 'dashboard' }
+    }]
+  },
   {
     path: '/zookeeper',
     component: Layout,
