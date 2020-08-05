@@ -2,19 +2,48 @@
   <div>
     <h2>节点管理</h2>
 
-    <el-container style="height: 500px; border: 1px solid #eee">
+    <el-container style="height: 600px; border: 1px solid #eee">
       <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
         <el-tree
-          :data="og"
+          :data="treeData"
           :props="defaultProps"
-          default-expand-all="true"
-          width="200px"
+          :default-expand-all=true
+          width="400px"
           @node-click="handleNodeClick"
         />
 
       </el-aside>
 
-      <el-container />
+      <el-main>
+        <el-container>
+          <el-card>
+            <el-tag>节点信息</el-tag>
+            <p>sssss</p>
+            <p>sssss</p>
+            <p>sssss</p>
+            <el-tag>节点状态</el-tag>
+            <p>ssss</p>
+            <el-divider></el-divider>
+
+            <el-button-group style="float: contour">
+              <el-button type="primary">创建节点</el-button>
+              <el-button type="success">修改节点</el-button>
+              <el-button type="danger">删除节点</el-button>
+            </el-button-group>
+          </el-card>
+
+          <el-divider></el-divider>
+
+
+          <el-footer>
+            <el-tabs type="border-card">
+              <el-tab-pane label="envi">......</el-tab-pane>
+              <el-tab-pane label="config">.....</el-tab-pane>
+              <el-tab-pane label="state">.....</el-tab-pane>
+            </el-tabs>
+          </el-footer>
+        </el-container>
+      </el-main>
     </el-container>
 
   </div>
@@ -27,6 +56,7 @@ export default {
   name: 'ZkNodeManager',
   data() {
     return {
+      tableOpen: false,
       host_port: '127.0.0.1:2181',
       node_type: [
         {
@@ -41,48 +71,17 @@ export default {
         children: 'child',
         label: 'showName'
       },
-      og: [
-        {
-          showName: '一级 1',
-          children: [{
-            showName: '二级 1-1',
-            children: [{
-              showName: '三级 1-1-1'
-            }]
-          }]
-        }, {
-          showName: '一级 2',
-          children: [{
-            showName: '二级 2-1',
-            children: [{
-              showName: '三级 2-1-1'
-            }]
-          }, {
-            showName: '二级 2-2',
-            children: [{
-              showName: '三级 2-2-1'
-            }]
-          }]
-        }, {
-          showName: '一级 3',
-          children: [{
-            showName: '二级 3-1',
-            children: [{
-              label: '三级 3-1-1'
-            }]
-          }, {
-            showName: '二级 3-2',
-            children: [{
-              showName: '三级 3-2-1'
-            }]
-          }]
-        }
+      treeData: [{
+        path: '',
+        showName: '空节点',
+        child: []
+      }
       ]
     }
   },
   created() {
     zkTree({ 'host_port': '127.0.0.1:2181' }).then(res => {
-      this.og = [res.data]
+      this.treeData = [res.data]
     }).catch(ex => {
       console.log(ex)
     })
