@@ -35,68 +35,70 @@
       </el-aside>
 
       <el-main>
-        <el-header>
-          <div>节点信息</div>
+        <el-container>
+          <el-main>
+            <div>节点信息</div>
 
-          <el-tabs type="border-card">
-            <el-tab-pane label="redis_key_hash">
-              <redis-key-hash :param="redis_config" />
-            </el-tab-pane>
+            <el-tabs type="border-card">
+              <el-tab-pane label="redis_key_hash">
+                <redis-key-hash :param="redis_config" />
+              </el-tab-pane>
 
-          </el-tabs>
+            </el-tabs>
 
-          <el-button-group style="float: contour">
-            <el-button type="primary">创建节点</el-button>
-            <el-button type="success">修改节点</el-button>
-            <el-button type="danger">删除节点</el-button>
-          </el-button-group>
+            <el-button-group style="float: contour">
+              <el-button type="primary">创建节点</el-button>
+              <el-button type="success">修改节点</el-button>
+              <el-button type="danger">删除节点</el-button>
+            </el-button-group>
 
-        </el-header>
-        <el-footer>
-          <el-tabs type="border-card">
-            <el-tab-pane label="easy_info">
-              <easy-info :param="redis_config" />
-            </el-tab-pane>
+          </el-main>
 
-            <el-tab-pane label="clients">
-              <clients :param="redis_config" />
-            </el-tab-pane>
+          <el-footer>
+            <el-tabs type="border-card">
+              <el-tab-pane label="easy_info">
+                <easy-info :param="redis_config" />
+              </el-tab-pane>
 
-            <el-tab-pane label="cluster">
-              <cluster :param="redis_config" />
-            </el-tab-pane>
+              <el-tab-pane label="clients">
+                <clients :param="redis_config" />
+              </el-tab-pane>
 
-            <el-tab-pane label="cpu">
-              <cpu :param="redis_config" />
-            </el-tab-pane>
+              <el-tab-pane label="cluster">
+                <cluster :param="redis_config" />
+              </el-tab-pane>
 
-            <el-tab-pane label="keyspace">
-              <keyspace :param="redis_config" />
-            </el-tab-pane>
+              <el-tab-pane label="cpu">
+                <cpu :param="redis_config" />
+              </el-tab-pane>
 
-            <el-tab-pane label="memory">
-              <memory :param="redis_config" />
-            </el-tab-pane>
+              <el-tab-pane label="keyspace">
+                <keyspace :param="redis_config" />
+              </el-tab-pane>
 
-            <el-tab-pane label="Persistence">
-              <persistence :param="redis_config" />
-            </el-tab-pane>
+              <el-tab-pane label="memory">
+                <memory :param="redis_config" />
+              </el-tab-pane>
 
-            <el-tab-pane label="Replication">
-              <replication :param="redis_config" />
-            </el-tab-pane>
+              <el-tab-pane label="Persistence">
+                <persistence :param="redis_config" />
+              </el-tab-pane>
 
-            <el-tab-pane label="Server">
-              <server :param="redis_config" />
-            </el-tab-pane>
+              <el-tab-pane label="Replication">
+                <replication :param="redis_config" />
+              </el-tab-pane>
 
-            <el-tab-pane label="Stats">
-              <stats :param="redis_config" />
-            </el-tab-pane>
+              <el-tab-pane label="Server">
+                <server :param="redis_config" />
+              </el-tab-pane>
 
-          </el-tabs>
-        </el-footer>
+              <el-tab-pane label="Stats">
+                <stats :param="redis_config" />
+              </el-tab-pane>
 
+            </el-tabs>
+          </el-footer>
+        </el-container>
       </el-main>
     </el-container>
   </div>
