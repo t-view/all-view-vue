@@ -38,6 +38,13 @@
         <el-header>
           <div>节点信息</div>
 
+          <el-tabs type="border-card">
+            <el-tab-pane label="redis_key_hash">
+              <redis-key-hash :param="redis_config" />
+            </el-tab-pane>
+
+          </el-tabs>
+
           <el-button-group style="float: contour">
             <el-button type="primary">创建节点</el-button>
             <el-button type="success">修改节点</el-button>
@@ -109,13 +116,16 @@ import Replication from './performance/replication'
 import Server from './performance/server'
 import Stats from './performance/stats'
 
+import RedisKeyHash from './key_info/redis_key_hash'
+
 export default {
   name: 'RedisDashboard',
   components: {
     EasyInfo, Clients, Cluster, Cpu, Keyspace, Memory, Persistence,
     Replication,
     Server,
-    Stats
+    Stats,
+    RedisKeyHash
   },
   data() {
     return {
