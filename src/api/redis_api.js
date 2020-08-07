@@ -82,7 +82,7 @@ export function keyspace(data) {
 
 export function login(data) {
   return request({
-    url: '/redis/acac',
+    url: '/rog/redis/acac',
     method: 'post',
     data
   })

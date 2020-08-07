@@ -47,16 +47,46 @@
         </el-header>
         <el-footer>
           <el-tabs type="border-card">
-            <el-tab-pane label="easy_info">......</el-tab-pane>
-            <el-tab-pane label="server">.....</el-tab-pane>
-            <el-tab-pane label="clients">.....</el-tab-pane>
-            <el-tab-pane label="memory">.....</el-tab-pane>
-            <el-tab-pane label="persistence">.....</el-tab-pane>
-            <el-tab-pane label="stats">.....</el-tab-pane>
-            <el-tab-pane label="replication">.....</el-tab-pane>
-            <el-tab-pane label="cpu">.....</el-tab-pane>
-            <el-tab-pane label="cluster">.....</el-tab-pane>
-            <el-tab-pane label="keyspace">.....</el-tab-pane>
+            <el-tab-pane label="easy_info">
+              <easy-info :param="redis_config" />
+            </el-tab-pane>
+
+            <el-tab-pane label="clients">
+              <clients :param="redis_config" />
+            </el-tab-pane>
+
+            <el-tab-pane label="cluster">
+              <cluster :param="redis_config" />
+            </el-tab-pane>
+
+            <el-tab-pane label="cpu">
+              <cpu :param="redis_config" />
+            </el-tab-pane>
+
+            <el-tab-pane label="keyspace">
+              <keyspace :param="redis_config" />
+            </el-tab-pane>
+
+            <el-tab-pane label="memory">
+              <memory :param="redis_config" />
+            </el-tab-pane>
+
+            <el-tab-pane label="Persistence">
+              <persistence :param="redis_config" />
+            </el-tab-pane>
+
+            <el-tab-pane label="Replication">
+              <replication :param="redis_config" />
+            </el-tab-pane>
+
+            <el-tab-pane label="Server">
+              <server :param="redis_config" />
+            </el-tab-pane>
+
+            <el-tab-pane label="Stats">
+              <stats :param="redis_config" />
+            </el-tab-pane>
+
           </el-tabs>
         </el-footer>
 
@@ -67,12 +97,34 @@
 </template>
 
 <script>
-import { easy_info, login } from '@/api/redis_api'
+import { login } from '@/api/redis_api'
+import EasyInfo from './performance/easy_info'
+import Clients from './performance/clients'
+import Cluster from './performance/cluster'
+import Cpu from './performance/cpu'
+import Keyspace from './performance/keyspace'
+import Memory from './performance/memory'
+import Persistence from './performance/persistence'
+import Replication from './performance/replication'
+import Server from './performance/server'
+import Stats from './performance/stats'
 
 export default {
   name: 'RedisDashboard',
+  components: {
+    EasyInfo, Clients, Cluster, Cpu, Keyspace, Memory, Persistence,
+    Replication,
+    Server,
+    Stats
+  },
   data() {
     return {
+      redis_config: {
+        'host': '',
+        'port': '',
+        'pwd': '',
+        'dbIndex': ''
+      },
       login_param: {
         name: 'localhost',
         host: 'localhost',
@@ -85,12 +137,12 @@ export default {
         label: 'showName'
       },
       treeData: [{
-        path: '',
+        path: 'localhost:8080',
         showName: 'localhost',
         type: 'host+port',
         child: [
           {
-            path: '/',
+            path: 'db0',
             showName: 'db0',
             type: 'database',
             child: [
@@ -115,10 +167,11 @@ export default {
         .then(_ => {
           done()
         })
-        .catch(_ => {})
+        .catch(_ => {
+        })
     },
     facd() {
-      easy_info({
+      login({
         'host': '127.0.0.1',
         'port': '6379',
         'pwd': '',
