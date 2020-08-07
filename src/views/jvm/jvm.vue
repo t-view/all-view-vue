@@ -27,7 +27,7 @@
       </el-col>
     </el-row>
     <el-row gutter="10" type="flex" justify="center">
-      <el-col span="8">
+      <el-col :span="8">
         <el-card body-style="height: 300px">
           5555
         </el-card>
@@ -43,48 +43,48 @@ import {
   deadlockCheck,
   javaThreadEntity,
   jvmInfo
-} from "@/api/jvm_api";
+} from '@/api/jvm_api'
 
 export default {
-  name: "JVM",
+  name: 'JVM',
   created() {
     gcInfoEntities()
       .then(res => {
-        console.log(res);
+        console.log(res)
       })
       .catch(e => {
-        console.log(e);
-      });
+        console.log(e)
+      })
     findCpuInfo()
       .then(res => {
-        console.log(res);
+        console.log(res)
       })
       .catch(e => {
-        console.log(e);
-      });
+        console.log(e)
+      })
     deadlockCheck()
       .then(res => {
-        console.log(res);
+        console.log(res)
       })
       .catch(e => {
-        console.log(e);
-      });
+        console.log(e)
+      })
     javaThreadEntity()
       .then(res => {
-        console.log(res);
+        console.log(res)
       })
       .catch(e => {
-        console.log(e);
-      });
+        console.log(e)
+      })
     jvmInfo()
       .then(res => {
-        console.log(res);
+        console.log(res)
       })
       .catch(e => {
-        console.log(e);
-      });
+        console.log(e)
+      })
   }
-};
+}
 </script>
 
 <style scoped>

@@ -1,5 +1,11 @@
 <template>
-  <h2>展示 string 结构</h2>
+  <div>
+
+    <h2>展示 string 结构</h2>
+    <h2>{{ key }}</h2>
+    <h2>{{ value }}</h2>
+  </div>
+
 </template>
 
 <script>
@@ -14,7 +20,10 @@ export default {
     }
   },
   data() {
-    return {}
+    return {
+      key: 'key',
+      value: 'value'
+    }
   },
   created() {
     console.log('父组件传递的值', this.param)

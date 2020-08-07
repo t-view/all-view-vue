@@ -37,15 +37,49 @@
       <el-main>
         <el-container>
           <el-main>
+            <div>新增节点组件</div>
+            <el-tabs type="border-card">
+              <el-tab-pane label="add_string">
+                <add-string :param="redis_config" />
+              </el-tab-pane>
+
+              <el-tab-pane label="add_list">
+                <add-list :param="redis_config" />
+              </el-tab-pane>
+
+              <el-tab-pane label="add_set">
+                <add-set :param="redis_config" />
+              </el-tab-pane>
+
+              <el-tab-pane label="add_zset">
+                <add-zset :param="redis_config" />
+              </el-tab-pane>
+
+              <el-tab-pane label="add_hash">
+                <add-hash :param="redis_config" />
+              </el-tab-pane>
+            </el-tabs>
+
             <div>节点信息</div>
 
             <el-tabs type="border-card">
+              <el-tab-pane label="redis_key_str">
+                <redis-key-str :param="redis_config" />
+              </el-tab-pane>
               <el-tab-pane label="redis_key_hash">
                 <redis-key-hash :param="redis_config" />
               </el-tab-pane>
 
               <el-tab-pane label="redis_key_list">
                 <redis-key-list :param="redis_config" />
+              </el-tab-pane>
+
+              <el-tab-pane label="redis_key_set">
+                <redis-key-set :param="redis_config" />
+              </el-tab-pane>
+
+              <el-tab-pane label="redis_key_zset">
+                <redis-key-zset :param="redis_config" />
               </el-tab-pane>
 
             </el-tabs>
@@ -124,6 +158,15 @@ import Stats from './performance/stats'
 
 import RedisKeyHash from './key_info/redis_key_hash'
 import RedisKeyList from './key_info/redis_key_list'
+import RedisKeyZset from './key_info/redis_key_zset'
+import RedisKeyStr from './key_info/redis_key_str'
+import RedisKeySet from './key_info/redis_key_set'
+
+import AddString from './add/add_string'
+import AddList from './add/add_list'
+import AddHash from './add/add_hash'
+import AddSet from './add/add_set'
+import AddZset from './add/add_zset'
 
 export default {
   name: 'RedisDashboard',
@@ -132,7 +175,11 @@ export default {
     Replication,
     Server,
     Stats,
-    RedisKeyHash, RedisKeyList
+    RedisKeyHash, RedisKeyList, RedisKeyZset, RedisKeyStr, RedisKeySet, AddString,
+    AddList,
+    AddHash,
+    AddSet,
+    AddZset
   },
   data() {
     return {
