@@ -44,6 +44,10 @@
                 <redis-key-hash :param="redis_config" />
               </el-tab-pane>
 
+              <el-tab-pane label="redis_key_list">
+                <redis-key-list :param="redis_config" />
+              </el-tab-pane>
+
             </el-tabs>
 
             <el-button-group style="float: contour">
@@ -119,6 +123,7 @@ import Server from './performance/server'
 import Stats from './performance/stats'
 
 import RedisKeyHash from './key_info/redis_key_hash'
+import RedisKeyList from './key_info/redis_key_list'
 
 export default {
   name: 'RedisDashboard',
@@ -127,7 +132,7 @@ export default {
     Replication,
     Server,
     Stats,
-    RedisKeyHash
+    RedisKeyHash, RedisKeyList
   },
   data() {
     return {

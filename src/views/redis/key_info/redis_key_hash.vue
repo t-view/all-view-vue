@@ -8,6 +8,10 @@
       style="width: 100%"
     >
       <el-table-column
+        type="index"
+        label="key"
+        width="180"
+      /><el-table-column
         prop="key"
         label="key"
         width="180"
@@ -36,7 +40,7 @@ export default {
   data() {
     return {
       big_key: 'uc3:company',
-      tableResData: [{ 'key': '', 'value': '' }],
+      tableResData: [],
       tableData: [{ 'c': 'A' }, { 'A': 'NEW_VALUE' }, { 'b': 'A' }]
     }
   },
