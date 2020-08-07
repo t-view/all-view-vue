@@ -6,6 +6,7 @@
     <el-container style="height: 1000px; border: 1px solid #eee">
       <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
         <el-button type="primary" @click="dialogVisible = true">添加链接</el-button>
+        <el-button type="primary" @click="facd">acacacacac</el-button>
 
         <el-dialog
           title="提示"
@@ -66,7 +67,7 @@
 </template>
 
 <script>
-import { login } from '@/api/redis_api'
+import { easy_info, login } from '@/api/redis_api'
 
 export default {
   name: 'RedisDashboard',
@@ -115,6 +116,18 @@ export default {
           done()
         })
         .catch(_ => {})
+    },
+    facd() {
+      easy_info({
+        'host': '127.0.0.1',
+        'port': '6379',
+        'pwd': '',
+        'dbIndex': '1'
+      }).then(res => {
+        console.log(res)
+      }).catch(e => {
+        console.log(e)
+      })
     },
     redis_login() {
       this.dialogVisible = true

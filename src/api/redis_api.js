@@ -1,6 +1,6 @@
 import request from '@/utils/request'
 
-function easy_info(data) {
+export function easy_info(data) {
   return request({
     url: '/redis/easy_info',
     method: 'post',
@@ -8,7 +8,7 @@ function easy_info(data) {
   })
 }
 
-function server(data) {
+export function server(data) {
   return request({
     url: '/redis/server',
     method: 'post',
@@ -16,7 +16,7 @@ function server(data) {
   })
 }
 
-function clients(data) {
+export function clients(data) {
   return request({
     url: '/redis/clients',
     method: 'post',
@@ -24,7 +24,7 @@ function clients(data) {
   })
 }
 
-function memory(data) {
+export function memory(data) {
   return request({
     url: '/redis/memory',
     method: 'post',
@@ -32,7 +32,7 @@ function memory(data) {
   })
 }
 
-function persistence(data) {
+export function persistence(data) {
   return request({
     url: '/redis/persistence',
     method: 'post',
@@ -40,7 +40,7 @@ function persistence(data) {
   })
 }
 
-function stats(data) {
+export function stats(data) {
   return request({
     url: '/redis/stats',
     method: 'post',
@@ -48,7 +48,7 @@ function stats(data) {
   })
 }
 
-function replication(data) {
+export function replication(data) {
   return request({
     url: '/redis/replication',
     method: 'post',
@@ -56,7 +56,7 @@ function replication(data) {
   })
 }
 
-function cpu(data) {
+export function cpu(data) {
   return request({
     url: '/redis/cpu',
     method: 'post',
@@ -64,7 +64,7 @@ function cpu(data) {
   })
 }
 
-function cluster(data) {
+export function cluster(data) {
   return request({
     url: '/redis/cluster',
     method: 'post',
@@ -72,7 +72,7 @@ function cluster(data) {
   })
 }
 
-function keyspace(data) {
+export function keyspace(data) {
   return request({
     url: '/redis/keyspace',
     method: 'post',
@@ -80,24 +80,24 @@ function keyspace(data) {
   })
 }
 
-function login(data) {
+export function login(data) {
   return request({
-    url: '/redis/login',
+    url: '/redis/acac',
     method: 'post',
     data
   })
 }
 
-export {
-
-  easy_info,
-  server,
-  clients,
-  memory,
-  persistence,
-  stats,
-  replication,
-  cpu,
-  cluster,
-  keyspace, login
-}
+// export {
+//
+//   easy_info,
+//   server,
+//   clients,
+//   memory,
+//   persistence,
+//   stats,
+//   replication,
+//   cpu,
+//   cluster,
+//   keyspace, login
+// }

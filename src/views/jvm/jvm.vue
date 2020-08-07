@@ -12,8 +12,42 @@
 </template>
 
 <script>
+import {
+  gcInfoEntities, findCpuInfo,
+  deadlockCheck,
+  javaThreadEntity,
+  jvmInfo
+} from '@/api/jvm_api'
+
 export default {
-  name: 'JVM'
+  name: 'JVM',
+  created() {
+    gcInfoEntities().then(res => {
+      console.log(res)
+    }).catch(e => {
+      console.log(e)
+    })
+    findCpuInfo().then(res => {
+      console.log(res)
+    }).catch(e => {
+      console.log(e)
+    })
+    deadlockCheck().then(res => {
+      console.log(res)
+    }).catch(e => {
+      console.log(e)
+    })
+    javaThreadEntity().then(res => {
+      console.log(res)
+    }).catch(e => {
+      console.log(e)
+    })
+    jvmInfo().then(res => {
+      console.log(res)
+    }).catch(e => {
+      console.log(e)
+    })
+  }
 }
 </script>
 

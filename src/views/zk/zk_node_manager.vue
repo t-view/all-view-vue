@@ -7,7 +7,7 @@
         <el-tree
           :data="treeData"
           :props="defaultProps"
-          :default-expand-all=true
+          :default-expand-all="true"
           width="400px"
           @node-click="handleNodeClick"
         />
@@ -23,7 +23,7 @@
             <p>sssss</p>
             <el-tag>节点状态</el-tag>
             <p>ssss</p>
-            <el-divider></el-divider>
+            <el-divider />
 
             <el-button-group style="float: contour">
               <el-button type="primary">创建节点</el-button>
@@ -32,8 +32,7 @@
             </el-button-group>
           </el-card>
 
-          <el-divider></el-divider>
-
+          <el-divider />
 
           <el-footer>
             <el-tabs type="border-card">
@@ -50,7 +49,6 @@
 </template>
 
 <script>
-import { zkTree } from '@/api/zookeeper_api'
 
 export default {
   name: 'ZkNodeManager',
@@ -78,13 +76,6 @@ export default {
       }
       ]
     }
-  },
-  created() {
-    zkTree({ 'host_port': '127.0.0.1:2181' }).then(res => {
-      this.treeData = [res.data]
-    }).catch(ex => {
-      console.log(ex)
-    })
   },
   methods: {
     handleNodeClick(data) {
